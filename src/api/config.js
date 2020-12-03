@@ -7,7 +7,7 @@
  */
 // export const SERVER = 'http://192.168.10.75:8980'
 // export const SERVER = window.location.origin + '/openbook'
-export const SERVER =  process.env.NODE_ENV === 'development' ? 'http://192.168.10.75:8980' : window.location.origin
+export const SERVER =  process.env.NODE_ENV === 'development' ? 'http://192.168.10.75:8980' : window.location.origin 
 
 export const API_CONFIG = {
 	login:          	 ['/api/rays/login','post'],
