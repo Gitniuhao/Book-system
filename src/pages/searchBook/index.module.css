@@ -1,0 +1,17 @@
+.searchForms{
+	width:1120px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.searchForms .ant-col{
+	flex:1;
+}
+.top{
+	display: flex;
+	justify-content: space-between;
+}
+.back{
+	background-color:#7897cc !important;
+	color:#fff !important;
+}

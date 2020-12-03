@@ -1,0 +1,1 @@
+打包之前下载依赖，npm install --production,无需下载开发时所用依赖

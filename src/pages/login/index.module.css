@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+p{
+	margin-bottom: 0px !important;
+}
+html,body{
+	height: 100vh;
+}
+
+.loginPage{
+	height: 100vh;
+}
+.container{
+	height: 100vh;
+}
+.top{
+    position: relative;
+	height:33vh;	
+}
+.name{
+	list-style-type: none;
+	position:absolute;
+	left: 50%;
+	margin-left: -186px;
+	top:35%;
+	height:125px;
+	width:372px;
+	border:2px solid #fff;
+	padding: 25px 0 5px;
+	box-sizing: border-box;
+}
+.nameCommon{
+	color:#fff;
+}
+.nameTop{
+	composes:nameCommon;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 100;
+	letter-spacing: 3px;
+}
+.nameBottom{
+	composes:nameCommon;
+	height: 40px;
+	line-height: 40px;
+	font-weight: 100;
+	font-size: 16.5px;
+	text-align: center;
+}
+.Login{
+	height:60vh;
+	position: relative;
+}
+.Login .loginForm{
+	position: absolute;
+	top:7%;
+	left: 50%;
+	margin-left: -186px;
+	width: 372px;
+	background-color:#fff;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}
+.btnSubmit{
+	width: 100%;
+}
+.bottom{
+	position: fixed;
+	height:70px;
+	width: 100%;
+	left: 0;
+	bottom:0;
+	background-color:#7897cc;
+	box-sizing: border-box;
+	padding-top: 20px;
+}
+.bottom p{
+	font-size: 14px;
+	text-align: center;
+	line-height: 20px;
+	color:#fff;
+}
