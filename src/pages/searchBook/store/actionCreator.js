@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-03 18:38:04
+ * @LastEditTime: 2020-12-03 18:58:15
  * @FilePath: \BookSystem\src\pages\searchBook\store\actionCreator.js
  */
 //在此页面定义并导出各个action(对象)，便于维护与处理
@@ -31,7 +31,7 @@ export const getBookListAction = (BookData)=>{
 		dispatch(getPageStartAction())
 		axios({
 			method:'get',
-			url:'/api/RaysSystem/bi/bookStd/list',
+			url:'/api/bi/bookStd/list',
 			params:{
 				currentPage:BookData.currentPage,
 				numPerPage:BookData.pageSize,
@@ -66,7 +66,7 @@ export const getBookDetailAction = (bookId)=>{
 		dispatch(getPageStartAction())
 		axios({
 			method:'get',
-			url:'/api/RaysSystem/bi/bookStd/getById',
+			url:'/api/bi/bookStd/getById',
 			params:{
 				id:bookId
 			},
