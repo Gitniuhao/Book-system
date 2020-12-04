@@ -183,10 +183,10 @@ module.exports = {
 		proxy:{
 			"/":{
 				target:"https://bigbi.raysyun.com/",
-				ws: true,
+				// ws: true,
 				// pathRewrite: {'^/api' : ''},
 				changeOrigin:true,
-				secure:false
+				// secure:false
 			}
 		}
 	}
