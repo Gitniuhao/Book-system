@@ -2,8 +2,8 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-03 10:44:21
- * @FilePath: \Book-system\src\pages\searchBook\c-pngs\detail.js
+ * @LastEditTime: 2020-12-04 10:47:41
+ * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect,useRef} from 'react';
 import AdminLayout from 'common/layout';
@@ -49,7 +49,7 @@ function BookDetail(props){
                         <Row>
                             <Col span={12}>
                                 <Form.Item label="isbn">
-                                    <Input value={bookDetail.isbn} disabled={true} />
+                                    <Input value={bookDetail.isbn} />
                                 </Form.Item>  
                             </Col>
                             <Col span={12}>

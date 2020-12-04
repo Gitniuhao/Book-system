@@ -181,12 +181,12 @@ module.exports = {
 		port:'8000',//服务运行的端口,可以手动更改端口，但是修改后要重新打包
 		historyApiFallback:true,//让h5路由刷新页面时不会向后台发送数据
 		proxy:{
-			"/":{
+			"/api":{
 				target:"https://bigbi.raysyun.com/",
-				// ws: true,
-				// pathRewrite: {'^/api' : ''},
+				ws: true,
+				pathRewrite: {'^/api' : ''},
 				changeOrigin:true,
-				// secure:false
+				secure:false
 			}
 		}
 	}
