@@ -2,8 +2,8 @@
  * @Author: 牛皓
  * @Date: 2020-08-10 18:20:31
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-01 15:13:37
- * @FilePath: \Book-system\src\common\header\index.js
+ * @LastEditTime: 2020-12-04 14:20:11
+ * @FilePath: \BookSystem\src\common\header\index.js
  */
 import { Layout, Menu, Icon, Dropdown, Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
@@ -53,7 +53,7 @@ class AdminHeader extends Component{
         <Layout>
           <Header className={styles.header}>
           <div style={style.logo} >
-                {/* <img style={style.im} src={require("images/logo.png")}></img> */}
+                <img style={style.im} src={require("images/logo.png")}></img>
                <span>RAYS <span style={style.platform}>图书展示平台</span></span>
             </div>
             <Dropdown overlay={menu} trigger={['click']} className={styles.dropDown}>
@@ -76,7 +76,7 @@ const style = {
     fontWeight: '500',
     lineHeight:'70px',
     boxSing:'border-box',
-    paddingLeft:'30px',
+    // paddingLeft:'20px',
     float:'left',
     verticalAlign:'middle'
   },

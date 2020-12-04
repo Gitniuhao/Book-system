@@ -14,7 +14,7 @@ const defaultState = fromJS({//初始化默认数据
 	currentPageSize:0,
 	totalPages:0,
 	total:0,
-	keywords:'',
+	keywords:[],
 
 	bookDetail:{},
 
@@ -29,7 +29,7 @@ export default (state = defaultState,action)=>{
 			'currentPageSize':action.payload.pageBean.numPerPage,
 			'total':action.payload.pageBean.totalCount,
 			'totalPages':action.payload.pageBean.pageCount,
-			'keywords':action.payload.keywords[0]
+			'keywords':action.payload.keywords
 		})
 	}
 	if(action.type == types.SET_BOOK_DETAIL){//开始时将spinning的值设置为true

@@ -9,9 +9,16 @@
 }
 .top{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	margin-bottom: 10px;
+	/* justify-content: space-between; */
 }
 .back{
 	background-color:#7897cc !important;
 	color:#fff !important;
+	margin-left: 20px;
+}
+.detailForm{
+	display: flex;
+	justify-content:space-around;
 }

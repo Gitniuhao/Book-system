@@ -27,28 +27,33 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 		// useEffect(()=>{
 		// 	console.log('keywords', keywords)
 		// },[])
-
 		const dispatch = useDispatch()
 
 		const columns = [
 			{
+			  title: '序号',
+			  dataIndex: 'key',
+			  key: 'key',
+			},			
+			{
 			  title: 'ID',
 			  dataIndex: 'id',
 			  key: 'id',
-			},
-			{
-			  title: 'isbn',
-			  dataIndex: 'isbn',
-			  key: 'isbn',
-			},
+			},			
 			{
 			  title: '图书名',
 			  key: 'bookName',
 			  dataIndex: 'bookName',
 			  render:(name)=>{
 				  if(keywords){
-					  let reg = new RegExp(keywords,'ig')
-					  let newName = name.replace(reg,`<b style="color:orange">${keywords}</b>`)
+					//   let reg = new RegExp(keywords,'ig')
+					//   let newName = name.replace(reg,`<b style="color:red">${keywords}</b>`)
+					let newName = ''
+					keywords.forEach(item=>{
+						let findText = name.split(item)
+						newName = findText.join(`<b style="color:red">${item}</b>`)	
+						name = newName
+					})					
 					  return <div dangerouslySetInnerHTML={{__html:newName}}></div>
 				  }else{
 					  return name;
@@ -56,29 +61,59 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			  }
 			},
 			{
+				title: 'isbn',
+				dataIndex: 'isbn',
+				key: 'isbn',
+			},
+			{
 			  title: '售价',
 			  key: 'bookPrice',
 			  dataIndex: 'bookPrice',
 			},
-			{
-			  title: '作者',
-			  key: 'author',
-			  dataIndex: 'author',
-			},
+			// {
+			//   title: '作者',
+			//   key: 'author',
+			//   dataIndex: 'author',
+			// },
 			{
 			  title: '出版社',
 			  key: 'publish',
 			  dataIndex: 'publish',
 			},
 			{
-			  title: '图书公司',
-			  key: 'company',
-			  dataIndex: 'company',
+			  title: '二级分类',
+			  key: 'secondClass',//secondClass
+			  dataIndex: 'secondClass',
 			},
 			{
 			  title: '出版时间',
 			  key: 'publishDate',
 			  dataIndex: 'publishDate',
+			},
+			{
+			  title: '图书封面',
+			  key: 'imgUrl',
+			  dataIndex: 'imgUrl',
+			  render:(imgUrl,record)=>{
+				  return (
+					<img
+						key={record.key} 
+						style={{height:'40px'}}  
+						src={imgUrl!=null  ? imgUrl : require('images/暂无相关内容.png')}
+						onError={(e)=>{e.target.onerror = null; e.target.src=require('images/暂无相关内容.png')}}
+					></img>
+				  )
+			  }
+			},
+			{
+			  title: '数据来源',
+			  key: 'dataSource',
+			  dataIndex: 'dataSource',
+			  render:(dataSource)=>{
+				  return (
+					  <a href={dataSource} target="blank">{dataSource}</a>
+				  )
+			  }
 			},
 			{
 				title:'操作',
@@ -106,8 +141,10 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			   	bookPrice:'￥'+item.get('bookPrice'),
 			   	author:item.get('author'),
 			   	publish:item.get('publish'),
-			   	company:item.get('company'),
+			   	secondClass:item.get('secondClass'),
 			   	publishDate:item.get('publishDate'),
+			   	imgUrl:item.get('imgUrl'),
+			   	dataSource:item.get('dataSource'),
 			}		 	
 		}).toJS()
 		return(
