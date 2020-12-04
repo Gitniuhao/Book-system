@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-10-27 11:40:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-03 19:11:31
+ * @LastEditTime: 2020-12-04 10:54:44
  * @FilePath: \BookSystem\webpack.config.pro.js
  */
 const {merge} = require('webpack-merge')
@@ -42,5 +42,16 @@ module.exports = merge(dev,{
 		// 	// 只有压缩率比这个值小的资源才会被处理
 		// 	minRatio: 0.8
 		// }),
-	]
+	],
+	devServer:{
+		proxy:{
+			"/":{
+				target:"https://bigbi.raysyun.com/",
+				ws: true,
+				// pathRewrite: {'^/api' : ''},
+				changeOrigin:true,
+				secure:false
+			}
+		}
+	}
 })
