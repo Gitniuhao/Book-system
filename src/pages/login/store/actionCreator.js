@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-03 17:10:19
+ * @LastEditTime: 2020-12-07 11:56:44
  * @FilePath: \BookSystem\src\pages\login\store\actionCreator.js
  */
 //在此页面定义并导出各个action(对象)，便于维护与处理
@@ -46,7 +46,7 @@ export const  getLoginAction = (values)=>{
 				// 2、然后跳转用后台首页
 					window.location.href = '/platform/searchBook'				
 			}else{//登录失败
-				message.error(result.data.rspMsg);
+				message.error(result.data.msg);
 			}
 		})
 		.catch(err =>{
