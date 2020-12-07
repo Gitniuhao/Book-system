@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 16:22:09
+ * @LastEditTime: 2020-12-07 16:45:44
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -132,9 +132,6 @@ function BookDetail(props){
                                     </Form.Item>                                             
                             </div>
                         </div>                       
-                         <Form.Item label="目录">                                   
-                            <div className={styles.longer} dangerouslySetInnerHTML={{__html: bookDetail.catalog }}></div>
-                        </Form.Item>
                         <Form.Item label="出版社推荐语">
                             <div className={styles.longer} dangerouslySetInnerHTML={{__html: bookDetail.press }}></div>
                         </Form.Item>
@@ -143,6 +140,9 @@ function BookDetail(props){
                         </Form.Item> 
                         <Form.Item label="内容简介">
                             <div className={styles.longer} dangerouslySetInnerHTML={{__html: bookDetail.content }}></div>
+                        </Form.Item>
+                        <Form.Item label="目录">                                   
+                            <div className={styles.longer} dangerouslySetInnerHTML={{__html: bookDetail.catalog }}></div>
                         </Form.Item>                                  
                     </Form>
                 </div>
