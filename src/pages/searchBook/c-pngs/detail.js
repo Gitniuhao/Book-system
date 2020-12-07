@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 14:35:13
+ * @LastEditTime: 2020-12-07 16:22:09
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -11,9 +11,7 @@ import {
     Breadcrumb,
     Form,
     Input,
-    Button,
-    Row,
-    Col
+    Button
 } from 'antd';
 import {useSelector,useDispatch,shallowEqual} from 'react-redux'
 import * as actionCreator from '../store/actionCreator'
@@ -122,10 +120,7 @@ function BookDetail(props){
                                     </Form.Item>                                
                                     <Form.Item label="字数">
                                         <Input value={bookDetail.words } />
-                                    </Form.Item>                              
-                                    <Form.Item label="开本">
-                                        <Input value={bookDetail.format } />
-                                    </Form.Item>                                
+                                    </Form.Item>                                                            
                                     <Form.Item label="上架类别">
                                         <Input value={bookDetail.recommend } />
                                     </Form.Item>                                                                                       
