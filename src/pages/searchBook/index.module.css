@@ -22,3 +22,9 @@
 	display: flex;
 	justify-content:space-around;
 }
+.longer{
+	border: 1px solid #ccc;
+	border-radius:2px;
+	box-sizing: border-box;
+	padding:0px 10px;	
+}
