@@ -2,13 +2,12 @@
  * @Author: 牛皓
  * @Date: 2020-08-10 18:20:31
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-04 14:20:11
+ * @LastEditTime: 2020-12-07 09:43:24
  * @FilePath: \BookSystem\src\common\header\index.js
  */
 import { Layout, Menu, Icon, Dropdown, Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import React,{Component} from 'react';
-const { SubMenu } = Menu;
 const { Header } = Layout;
 import styles from './index.module.css'
 import { getItem,removeItem,judgeTime } from 'util'
