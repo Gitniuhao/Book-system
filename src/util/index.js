@@ -151,6 +151,10 @@ export const judgeTime = ()=>{
 	else {return"你好！"} 
 }
 
+export const cutImageUrl = (imgUrl) =>{
+	return imgUrl.substr(imgUrl.indexOf(":")+1)
+}
+
 
 
 
