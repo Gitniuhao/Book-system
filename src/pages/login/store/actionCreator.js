@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 15:16:36
+ * @LastEditTime: 2020-12-07 15:23:02
  * @FilePath: \BookSystem\src\pages\login\store\actionCreator.js
  */
 //在此页面定义并导出各个action(对象)，便于维护与处理
@@ -49,9 +49,9 @@ export const  getLoginAction = (values)=>{
 			// 	message.error(result.data.msg);
 			// }
 		})
-		.catch(err =>{
-			 message.error('请求失败，请稍后重试~');
-		})
+		// .catch(err =>{
+		// 	 message.error('请求失败，请稍后重试~');
+		// })
 		.finally(()=>{
 			//请求完毕后loading取消
 			dispatch(getLoginDoneAction())
