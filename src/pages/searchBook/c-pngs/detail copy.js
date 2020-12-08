@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 18:50:50
+ * @LastEditTime: 2020-12-07 17:51:38
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -58,78 +58,78 @@ function BookDetail(props){
                                     </ul>
                                 </Form.Item>                           
                                 <Form.Item label="售价">
-                                        <div  dangerouslySetInnerHTML={{__html: '￥'+bookDetail.bookPrice }}></div>
+                                        <Input value={'￥'+bookDetail.bookPrice } />
                                 </Form.Item>
                                 <Form.Item label=" 出版社">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.publish }}></div>
+                                    <Input value={bookDetail.publish } />
                                 </Form.Item>                                 
                                 <Form.Item label="数据来源">
-                                    <a  href={bookDetail.dataSource} target="blank">{bookDetail.dataSource}</a> 
+                                    <Input value={bookDetail.dataSource } />
                                 </Form.Item>                                
                                 <Form.Item label="插入日期">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.createTime }}></div>
+                                    <Input value={bookDetail.createTime } />
                                 </Form.Item>
                                 <Form.Item label="一级分类">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.primaryClass }}></div>
+                                    <Input value={bookDetail.primaryClass } />
                                 </Form.Item>
                                 <Form.Item label="二级分类">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.secondClass }}></div>    
+                                    <Input value={bookDetail.secondClass } />
                                 </Form.Item>
                                 <Form.Item label="三级分类">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.threeClass }}></div>
+                                    <Input value={bookDetail.threeClass } />
                                 </Form.Item>                            
                                 <Form.Item label="装帧">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.bind }}></div>
+                                    <Input value={bookDetail.bind } />
                                 </Form.Item>
                                 <Form.Item label="页数">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.pages }}></div>    
+                                    <Input value={bookDetail.pages } />
                                 </Form.Item>
                                 <Form.Item label="印张">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.prints }}></div>
+                                    <Input value={bookDetail.prints } />
                                 </Form.Item>
                                 <Form.Item label="正文语种">
-                                    <div  dangerouslySetInnerHTML={{__html: bookDetail.languages }}></div>
+                                    <Input value={bookDetail.languages } />
                                 </Form.Item>                                  
                             </div>
                             <div className={styles.right} style={{width:'40%'}}>
                                     <Form.Item label="isbn">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.isbn }}></div>
+                                        <Input value={bookDetail.isbn} />
                                     </Form.Item>
                                     <Form.Item label="图书名">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.bookName }}></div>
+                                        <Input value={bookDetail.bookName} />
                                     </Form.Item>
                                     <Form.Item label="作者">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.author }}></div>
+                                        <Input value={bookDetail.author } />
                                     </Form.Item>        
                                     <Form.Item label="图书公司">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.company }}></div>
+                                        <Input value={bookDetail.company } />
                                     </Form.Item>                                                                                                
                                     <Form.Item label="出版时间">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.publishDate }}></div>
+                                        <Input value={bookDetail.publishDate } />
                                     </Form.Item>                                
                                     <Form.Item label="更新日期">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.updateTime }}></div>
+                                        <Input value={bookDetail.updateTime } />
                                     </Form.Item>                                                            
                                     <Form.Item label="责任编辑">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.editor }}></div>
+                                        <Input value={bookDetail.editor } />
                                     </Form.Item>                             
                                     <Form.Item label="开本">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.format }}></div>
+                                        <Input value={bookDetail.format } />
                                     </Form.Item>                                
                                     <Form.Item label="版次">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.edition }}></div>
+                                        <Input value={bookDetail.edition } />
                                     </Form.Item>                                
                                     <Form.Item label="字数">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.words }}></div>
+                                        <Input value={bookDetail.words } />
                                     </Form.Item>                                                            
                                     <Form.Item label="上架类别">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.recommend }}></div>
+                                        <Input value={bookDetail.recommend } />
                                     </Form.Item>                                                                                       
                                     <Form.Item label="录入时间">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.releaseDate }}></div>
+                                        <Input value={bookDetail.releaseDate } />
                                     </Form.Item>
                                     <Form.Item label="读者群体">
-                                        <div  dangerouslySetInnerHTML={{__html: bookDetail.readergroup }}></div>
+                                        <Input value={bookDetail.readergroup } />
                                     </Form.Item>                                             
                             </div>
                         </div>                       
