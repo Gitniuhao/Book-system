@@ -2,8 +2,8 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 17:51:38
- * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
+ * @LastEditTime: 2020-12-08 13:57:20
+ * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail copy.js
  */
 import React,{memo,useEffect} from 'react';
 import AdminLayout from 'common/layout';
@@ -11,6 +11,7 @@ import {
     Breadcrumb,
     Form,
     Input,
+    Descriptions ,
     Button
 } from 'antd';
 import {useSelector,useDispatch,shallowEqual} from 'react-redux'
@@ -39,14 +40,11 @@ function BookDetail(props){
                     <Breadcrumb style={{ margin: '7px 0' }}>
                         <Breadcrumb.Item>图书搜索</Breadcrumb.Item>
                         <Breadcrumb.Item>图书详情</Breadcrumb.Item>
-                    </Breadcrumb>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  
+                    </Breadcrumb>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  
                 </div>                            
-                <div className='content'>
-                    <Form labelCol={{span:2}} wrapperCol={{span:16}}>
-                        <div className={styles.detailForm}>
-                            <div className={styles.left} style={{width:'40%'}}>
-                                <Form.Item label="封面图片">
+                <div className={styles.content}>
+                    <Descriptions column={2} size='default' className={styles.desc}>
+                                <Descriptions.Item label="封面图片">
                                     <ul>
                                         <li style={{listStyle:'none'}}>
                                             <img 
@@ -56,100 +54,97 @@ function BookDetail(props){
                                             ></img>
                                         </li>
                                     </ul>
-                                </Form.Item>                           
-                                <Form.Item label="售价">
-                                        <Input value={'￥'+bookDetail.bookPrice } />
-                                </Form.Item>
-                                <Form.Item label=" 出版社">
+                                </Descriptions.Item>                           
+                                <Descriptions.Item label="售价">
+                                        {/* <Input value={'￥'+bookDetail.bookPrice } /> */}
+                                        <div  dangerouslySetInnerHTML={{__html: '￥'+bookDetail.bookPrice }}></div>
+                                </Descriptions.Item>
+                                <Descriptions.Item label=" 出版社">
                                     <Input value={bookDetail.publish } />
-                                </Form.Item>                                 
-                                <Form.Item label="数据来源">
+                                </Descriptions.Item>                                 
+                                <Descriptions.Item label="数据来源">
                                     <Input value={bookDetail.dataSource } />
-                                </Form.Item>                                
-                                <Form.Item label="插入日期">
+                                </Descriptions.Item>                                
+                                <Descriptions.Item label="插入日期">
                                     <Input value={bookDetail.createTime } />
-                                </Form.Item>
-                                <Form.Item label="一级分类">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="一级分类">
                                     <Input value={bookDetail.primaryClass } />
-                                </Form.Item>
-                                <Form.Item label="二级分类">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="二级分类">
                                     <Input value={bookDetail.secondClass } />
-                                </Form.Item>
-                                <Form.Item label="三级分类">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="三级分类">
                                     <Input value={bookDetail.threeClass } />
-                                </Form.Item>                            
-                                <Form.Item label="装帧">
+                                </Descriptions.Item>                            
+                                <Descriptions.Item label="装帧">
                                     <Input value={bookDetail.bind } />
-                                </Form.Item>
-                                <Form.Item label="页数">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="页数">
                                     <Input value={bookDetail.pages } />
-                                </Form.Item>
-                                <Form.Item label="印张">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="印张">
                                     <Input value={bookDetail.prints } />
-                                </Form.Item>
-                                <Form.Item label="正文语种">
+                                </Descriptions.Item>
+                                <Descriptions.Item label="正文语种">
                                     <Input value={bookDetail.languages } />
-                                </Form.Item>                                  
-                            </div>
-                            <div className={styles.right} style={{width:'40%'}}>
-                                    <Form.Item label="isbn">
+                                </Descriptions.Item>                                                                 
+                                    <Descriptions.Item label="isbn">
                                         <Input value={bookDetail.isbn} />
-                                    </Form.Item>
-                                    <Form.Item label="图书名">
+                                    </Descriptions.Item>
+                                    <Descriptions.Item label="图书名">
                                         <Input value={bookDetail.bookName} />
-                                    </Form.Item>
-                                    <Form.Item label="作者">
+                                    </Descriptions.Item>
+                                    <Descriptions.Item label="作者">
                                         <Input value={bookDetail.author } />
-                                    </Form.Item>        
-                                    <Form.Item label="图书公司">
+                                    </Descriptions.Item>        
+                                    <Descriptions.Item label="图书公司">
                                         <Input value={bookDetail.company } />
-                                    </Form.Item>                                                                                                
-                                    <Form.Item label="出版时间">
+                                    </Descriptions.Item>                                                                                                
+                                    <Descriptions.Item label="出版时间">
                                         <Input value={bookDetail.publishDate } />
-                                    </Form.Item>                                
-                                    <Form.Item label="更新日期">
+                                    </Descriptions.Item>                                
+                                    <Descriptions.Item label="更新日期">
                                         <Input value={bookDetail.updateTime } />
-                                    </Form.Item>                                                            
-                                    <Form.Item label="责任编辑">
+                                    </Descriptions.Item>                                                            
+                                    <Descriptions.Item label="责任编辑">
                                         <Input value={bookDetail.editor } />
-                                    </Form.Item>                             
-                                    <Form.Item label="开本">
-                                        <Input value={bookDetail.format } />
-                                    </Form.Item>                                
-                                    <Form.Item label="版次">
+                                    </Descriptions.Item>                             
+                                    <Descriptions.Item label="开本">
+                                        <Input value={bookDetail.format} />
+                                    </Descriptions.Item>                                
+                                    <Descriptions.Item label="版次">
                                         <Input value={bookDetail.edition } />
-                                    </Form.Item>                                
-                                    <Form.Item label="字数">
+                                    </Descriptions.Item>                                
+                                    <Descriptions.Item label="字数">
                                         <Input value={bookDetail.words } />
-                                    </Form.Item>                                                            
-                                    <Form.Item label="上架类别">
+                                    </Descriptions.Item>                                                            
+                                    <Descriptions.Item label="上架类别">
                                         <Input value={bookDetail.recommend } />
-                                    </Form.Item>                                                                                       
-                                    <Form.Item label="录入时间">
+                                    </Descriptions.Item>                                                                                       
+                                    <Descriptions.Item label="录入时间">
                                         <Input value={bookDetail.releaseDate } />
-                                    </Form.Item>
-                                    <Form.Item label="读者群体">
+                                    </Descriptions.Item>
+                                    <Descriptions.Item label="读者群体">
                                         <Input value={bookDetail.readergroup } />
-                                    </Form.Item>                                             
-                            </div>
-                        </div>                       
-                        <Form.Item label="出版社推荐语">
+                                    </Descriptions.Item>                        
+                       <Descriptions.Item label="出版社推荐语" span={2}>
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.press }}></div>
-                        </Form.Item>
-                        <Form.Item label="作者简介">
+                        </Descriptions.Item>
+                        <Descriptions.Item label="作者简介" span={2}>
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.authorbio }}></div>
-                        </Form.Item> 
-                        <Form.Item label="内容简介">
+                        </Descriptions.Item> 
+                        <Descriptions.Item label="内容简介" span={2}>
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.content }}></div>
-                        </Form.Item>
-                        <Form.Item label="目录">                                   
+                        </Descriptions.Item>
+                        <Descriptions.Item label="目录" span={2}>                                   
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.catalog }}></div>
-                        </Form.Item>                                  
-                    </Form>
+                        </Descriptions.Item>                                  
+                    </Descriptions >
                 </div>
             </AdminLayout>
         </div>
     )
 }
-const WrappedBookDetail = Form.create({name:'detail'})(BookDetail);
-export default withRouter(memo(WrappedBookDetail));
+// const WrappedBookDetail = Form.create({name:'detail'})(BookDetail);
+export default withRouter(memo(BookDetail));

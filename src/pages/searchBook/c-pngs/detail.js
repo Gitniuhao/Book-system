@@ -1,8 +1,8 @@
 /*
  * @Author: 牛皓
- * @Date: 2020-11-30 15:08:28
+ * @Date: 2020-12-08 11:22:54
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 09:21:12
+ * @LastEditTime: 2020-12-08 13:55:50
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -42,9 +42,9 @@ function BookDetail(props){
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  
                 </div>                            
                 <div className='content'>
-                    <Form labelCol={{span:2}} wrapperCol={{span:16}}>
+                    <Form labelCol={{span:4}} wrapperCol={{span:16}}>
                         <div className={styles.detailForm}>
-                            <div className={styles.left} style={{width:'40%'}}>
+                            <div className={styles.left} style={{width:'33%'}}>
                                 <Form.Item label="封面图片">
                                     <ul>
                                         <li style={{listStyle:'none'}}>
@@ -56,10 +56,10 @@ function BookDetail(props){
                                         </li>
                                     </ul>
                                 </Form.Item>                           
-                                <Form.Item label="售价">
+                                <Form.Item label="售价" style={{minWidth:"40px"}}>
                                         <div  dangerouslySetInnerHTML={{__html: '￥'+bookDetail.bookPrice }}></div>
                                 </Form.Item>
-                                <Form.Item label=" 出版社">
+                                <Form.Item label=" 出版社" style={{minWidth:"150px"}}>
                                     <div  dangerouslySetInnerHTML={{__html: bookDetail.publish }}></div>
                                 </Form.Item>                                 
                                 <Form.Item label="数据来源">
@@ -132,6 +132,21 @@ function BookDetail(props){
                                     </Form.Item>                                             
                             </div>
                         </div>                       
+                        {/* <Form.Item label="出版社推荐语">
+                            <div  dangerouslySetInnerHTML={{__html: bookDetail.press }}></div>
+                        </Form.Item>
+                        <Form.Item label="作者简介">
+                            <div  dangerouslySetInnerHTML={{__html: bookDetail.authorbio }}></div>
+                        </Form.Item> 
+                        <Form.Item label="内容简介">
+                            <div  dangerouslySetInnerHTML={{__html: bookDetail.content }}></div>
+                        </Form.Item>
+                        <Form.Item label="目录">                                   
+                            <div  dangerouslySetInnerHTML={{__html: bookDetail.catalog }}></div>
+                        </Form.Item>                                   */}
+                    </Form>
+                </div>
+                <Form labelCol={{span:3}} wrapperCol={{span:16}}>
                         <Form.Item label="出版社推荐语">
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.press }}></div>
                         </Form.Item>
@@ -143,9 +158,8 @@ function BookDetail(props){
                         </Form.Item>
                         <Form.Item label="目录">                                   
                             <div  dangerouslySetInnerHTML={{__html: bookDetail.catalog }}></div>
-                        </Form.Item>                                  
-                    </Form>
-                </div>
+                        </Form.Item>             
+                </Form>
             </AdminLayout>
         </div>
     )
