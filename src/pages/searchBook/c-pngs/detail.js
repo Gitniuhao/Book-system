@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:28
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 18:50:50
+ * @LastEditTime: 2020-12-08 09:21:12
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -19,7 +19,6 @@ import {withRouter} from 'react-router-dom'
 import {createBrowserHistory} from 'history'
 const history = createBrowserHistory()
 import styles from '../index.module.css'
-import {cutImageUrl} from 'util'
 
 function BookDetail(props){
 
@@ -51,7 +50,7 @@ function BookDetail(props){
                                         <li style={{listStyle:'none'}}>
                                             <img 
                                                 style={{height:'170px'}} 
-                                                src={bookDetail.imgUrl!=null  ? cutImageUrl(bookDetail.imgUrl) : require('images/暂无相关内容.png')}
+                                                src={bookDetail.imgUrl!=null  ? bookDetail.imgUrl : require('images/暂无相关内容.png')}
                                                 onError={(e)=>{e.target.onerror = null; e.target.src=require('images/暂无相关内容.png')}}
                                             ></img>
                                         </li>
