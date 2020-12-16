@@ -2,25 +2,20 @@
  * @Author: 牛皓
  * @Date: 2020-08-10 18:20:31
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 09:43:24
+ * @LastEditTime: 2020-12-08 14:25:20
  * @FilePath: \BookSystem\src\common\header\index.js
  */
 import { Layout, Menu, Icon, Dropdown, Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import React,{Component} from 'react';
+import React,{memo} from 'react';
 const { Header } = Layout;
 import styles from './index.module.css'
 import { getItem,removeItem,judgeTime } from 'util'
 import api from 'api';
 
-class AdminHeader extends Component{
-  constructor(props){
-    super(props)
-    this.handleLogout = this.handleLogout.bind(this)
-    this.confirm = this.confirm.bind(this)
-  }
- confirm(){
-    const _this = this//将全局this重新赋值
+function AdminHeader (){
+  
+  const confirm =()=>{
     Modal.confirm({
       title: '提醒',
       icon: <ExclamationCircleOutlined />,
@@ -28,11 +23,11 @@ class AdminHeader extends Component{
       okText: '确认',
       cancelText: '取消',
       onOk(){
-          _this.handleLogout()
+         handleLogout()
       }
     });
   }
-  handleLogout(){//发送ajax清除后台session后然后清除前台locastroage退出登录
+  const handleLogout =()=>{//发送ajax清除后台session后然后清除前台locastroage退出登录
         api.logout();
          //1、清除localstorage
          removeItem('username')
@@ -40,10 +35,9 @@ class AdminHeader extends Component{
          //2、跳转到登录页面
          window.location.href = '/platform/login'  
   }
-  render(){
     const menu = (
       <Menu>
-        <Menu.Item key="0" onClick={this.confirm}>
+        <Menu.Item key="0" onClick={confirm}>
             <Icon type="logout" />退出
         </Menu.Item>
       </Menu>
@@ -64,7 +58,7 @@ class AdminHeader extends Component{
         </Layout>
       )
   }
-}
+
 const style = {
   logo: {
     height: '70px',
@@ -86,4 +80,4 @@ const style = {
   marginBottom:'7px'
  }
 }
-export default AdminHeader;
+export default memo(AdminHeader);

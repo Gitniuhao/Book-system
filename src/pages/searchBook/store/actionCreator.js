@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 13:57:47
+ * @LastEditTime: 2020-12-16 15:52:02
  * @FilePath: \BookSystem\src\pages\searchBook\store\actionCreator.js
  */
 //在此页面定义并导出各个action(对象)，便于维护与处理
@@ -29,9 +29,11 @@ const getPageDoneAction = () =>({
 export const getBookListAction = (BookData)=>{
 	return (dispatch,getState) =>{
 		dispatch(getPageStartAction())
+		console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+		const bookListUrl =  process.env.NODE_ENV === 'development' ? '/api/bi/bookStd/list' : '/bi/bookStd/list'
 		axios({
 			method:'get',
-			url:'/bi/bookStd/list',// /api
+			url:bookListUrl,// /api
 			params:{
 				currentPage:BookData.currentPage,
 				numPerPage:BookData.pageSize,
@@ -46,7 +48,7 @@ export const getBookListAction = (BookData)=>{
 		.then(result=>{
 			if(result.data.errCode === 0){
 				// //派发action传递设置页面分页数据
-				console.log('object', result.data.data)
+				// console.log('object', result.data.data)
 				dispatch(setBookListAction(result.data.data))
 			}else{
 				ErrorMessage()
@@ -64,9 +66,10 @@ export const getBookListAction = (BookData)=>{
 export const getBookDetailAction = (bookId)=>{
 	return (dispatch,getState) =>{
 		dispatch(getPageStartAction())
+		const bookDetailUrl =  process.env.NODE_ENV === 'development' ? '/api/bi/bookStd/getById' : '/bi/bookStd/getById'
 		axios({
 			method:'get',
-			url:'/bi/bookStd/getById',// /api
+			url:bookDetailUrl,// /api
 			params:{
 				id:bookId
 			},
@@ -77,7 +80,7 @@ export const getBookDetailAction = (bookId)=>{
 		.then(result=>{
 			if(result.data.errCode === 0){
 				// //派发action传递设置页面分页数据
-				console.log('object', result.data.data)
+				// console.log('object', result.data.data)
 				dispatch(setBookDetailAction(result.data.data))
 			}else{
 				ErrorMessage()

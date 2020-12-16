@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-30 15:08:53
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 13:34:12
+ * @LastEditTime: 2020-12-08 17:31:40
  * @FilePath: \BookSystem\src\pages\searchBook\index.js
  */
 import React,{Component} from 'react'

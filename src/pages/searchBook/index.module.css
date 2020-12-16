@@ -28,8 +28,7 @@
 	box-sizing: border-box;
 	padding:0px 10px;	
 }
-.desc{
+.content{
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content:center;
 }

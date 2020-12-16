@@ -2,15 +2,14 @@
  * @Author: 牛皓
  * @Date: 2020-08-10 18:20:30
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-01 09:51:44
- * @FilePath: \rays\src\common\err\index.js
+ * @LastEditTime: 2020-12-08 14:18:37
+ * @FilePath: \BookSystem\src\common\err\index.js
  */
-import React,{Component} from 'react';
+import React,{memo} from 'react';
 import { Alert,Button } from 'antd';
 import styles from './index.module.css'
 import {Link} from 'react-router-dom'
-class Err extends Component{
-	render(){
+function Err(){
 		return(	
 			<div className={styles.Err}>
 				<Alert
@@ -26,6 +25,5 @@ class Err extends Component{
 			    </Link>
 			</div>
 		)
-	}
 }
-export default Err;
+export default memo(Err);

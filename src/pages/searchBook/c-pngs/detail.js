@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-12-08 11:22:54
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 13:55:50
+ * @LastEditTime: 2020-12-09 09:32:29
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -22,14 +22,15 @@ import styles from '../index.module.css'
 
 function BookDetail(props){
 
-    const {bookDetail} = useSelector(state=>({
-        bookDetail:state.getIn(['searchBook','bookDetail'])
-    }),shallowEqual)
-
     const dispatch = useDispatch()
      useEffect(() => {
          dispatch(actionCreator.getBookDetailAction(props.match.params.bookId))  
     }, [])
+
+    
+    const {bookDetail} = useSelector(state=>({
+        bookDetail:state.getIn(['searchBook','bookDetail'])
+    }),shallowEqual)
      
     return(
         <div className={styles.bookDetail}>
@@ -39,7 +40,7 @@ function BookDetail(props){
                         <Breadcrumb.Item>图书搜索</Breadcrumb.Item>
                         <Breadcrumb.Item>图书详情</Breadcrumb.Item>
                     </Breadcrumb>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  
+                    <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  
                 </div>                            
                 <div className='content'>
                     <Form labelCol={{span:4}} wrapperCol={{span:16}}>
@@ -50,16 +51,16 @@ function BookDetail(props){
                                         <li style={{listStyle:'none'}}>
                                             <img 
                                                 style={{height:'170px'}} 
-                                                src={bookDetail.imgUrl!=null  ? bookDetail.imgUrl : require('images/暂无相关内容.png')}
+                                                src={bookDetail.imgUrl !=null  ? bookDetail.imgUrl : require('images/暂无相关内容.png')}
                                                 onError={(e)=>{e.target.onerror = null; e.target.src=require('images/暂无相关内容.png')}}
                                             ></img>
                                         </li>
                                     </ul>
                                 </Form.Item>                           
-                                <Form.Item label="售价" style={{minWidth:"40px"}}>
+                                <Form.Item label="售价">
                                         <div  dangerouslySetInnerHTML={{__html: '￥'+bookDetail.bookPrice }}></div>
                                 </Form.Item>
-                                <Form.Item label=" 出版社" style={{minWidth:"150px"}}>
+                                <Form.Item label=" 出版社" >
                                     <div  dangerouslySetInnerHTML={{__html: bookDetail.publish }}></div>
                                 </Form.Item>                                 
                                 <Form.Item label="数据来源">
