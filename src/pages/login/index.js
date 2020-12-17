@@ -52,7 +52,7 @@ function NormalLoginForm(props){
               </Form.Item>
               <Form.Item>
                 {getFieldDecorator('name', {
-                  rules: [{ required: true, message: '账号不能为空' },{pattern:/^\w{3,6}$/i,message:'用户名是以字母开头的3-6位字符'}],
+                  rules: [{ required: true, message: '账号不能为空' },{pattern:/^\w{3,9}$/i,message:'用户名是以字母开头的3-9位字符'}],
                 })(
                   <Input
                     prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,0.25)' }} />}

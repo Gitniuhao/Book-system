@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-12-08 11:22:54
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-09 09:32:29
+ * @LastEditTime: 2020-12-17 15:48:09
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -37,7 +37,7 @@ function BookDetail(props){
             <AdminLayout>
                 <div className={styles.top}>
                     <Breadcrumb style={{ margin: '7px 0' }}>
-                        <Breadcrumb.Item>图书搜索</Breadcrumb.Item>
+                        <Breadcrumb.Item>图书查询</Breadcrumb.Item>
                         <Breadcrumb.Item>图书详情</Breadcrumb.Item>
                     </Breadcrumb>
                     <Button className={styles.back} onClick={()=>props.history.push('/platform/searchBook/List')}>&lt;返回列表页</Button>  

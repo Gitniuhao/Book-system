@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-08-31 10:56:19
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-04 13:35:31
+ * @LastEditTime: 2020-12-17 15:47:17
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\searchForms.js
  */
 import React,{memo,useEffect} from 'react'
@@ -46,56 +46,62 @@ function Search(props){
                 wrapperCol={{ span: 17 }}
                 onSubmit={handleSubmit}
             >
-                <Form.Item label="图书名称">
-                    {getFieldDecorator('bookName',{
-                    // rules: [{ required: true, message: '图书名称不能为空' }],
-                    })(
-                    <Input
-                        placeholder="请输入图书名称"
-                        style={{width:'230px'}}
-                    />,
-                    )}
-                </Form.Item>
-                <Form.Item label="isbn">
-                    {getFieldDecorator('isbn',{
-                    // rules: [{ required: true, message: 'isbn不能为空' }],
-                    })(
-                    <Input
-                        placeholder="请输入isbn"
-                        style={{width:'230px'}}
-                    />,
-                    )}
-                </Form.Item>
-                <Form.Item label="出版社">
-                    {getFieldDecorator('publish',{
-                    // rules: [{ required: true, message: '出版社不能为空' }],
-                    })(
-                    <Input
-                        placeholder="请输入出版社"
-                        style={{width:'230px'}}
-                    />,
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    <Button 
-                    type="primary"  
-                    className="btn-submit"
-                    onClick ={()=>props.form.resetFields()}
-                    >
-                    重置
-                    </Button>
-                </Form.Item>
-                <Form.Item>
-                    <Button 
-                        type="primary"  
-                        className="btn-submit"
-                        onClick ={handleSubmit}
-                        
-                        loading={props.isFetching}
-                    >
-                    搜索
-                    </Button>
-                </Form.Item>
+              <div className={styles.inputForm}>
+                    <Form.Item label="图书名称">
+                        {getFieldDecorator('bookName',{
+                        // rules: [{ required: true, message: '图书名称不能为空' }],
+                        })(
+                        <Input
+                            placeholder="请输入图书名称"
+                            style={{width:'230px'}}
+                        />,
+                        )}
+                    </Form.Item>
+                    <Form.Item label="isbn">
+                        {getFieldDecorator('isbn',{
+                        // rules: [{ required: true, message: 'isbn不能为空' }],
+                        })(
+                        <Input
+                            placeholder="请输入isbn"
+                            style={{width:'230px'}}
+                        />,
+                        )}
+                    </Form.Item>
+                    <Form.Item label="出版社">
+                        {getFieldDecorator('publish',{
+                        // rules: [{ required: true, message: '出版社不能为空' }],
+                        })(
+                        <Input
+                            placeholder="请输入出版社"
+                            style={{width:'230px'}}
+                        />,
+                        )}
+                    </Form.Item>
+              </div>
+              <div className={styles.buttonForm}>
+                    <Form.Item>
+                        <Button 
+                            type="primary"
+                            icon="search" 
+                            className="btn-submit"
+                            onClick={handleSubmit}
+                            loading={props.isFetching}
+                        >
+                        查询
+                        </Button>
+                    </Form.Item>
+                    <Form.Item>
+                        <Button 
+                            type="ghost"  
+                            className="btn-submit"
+                            // style={{backgroundColor:'#a3b8d9'}}                   
+                            onClick ={()=>props.form.resetFields()}
+                        >
+                        重置
+                        </Button>
+                    </Form.Item>
+              </div>                 
+                
             </Form>
         </div>
     );

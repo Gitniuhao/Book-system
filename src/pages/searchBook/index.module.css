@@ -1,11 +1,23 @@
 .searchForms{
-	width:1120px;
+	width:1250px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.searchForms .ant-col{
+	flex:1;
+}
+.inputForm{
+	width:1000px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
-.searchForms .ant-col{
-	flex:1;
+.buttonForm{
+	width:155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 .top{
 	display: flex;

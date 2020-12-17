@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-08-10 18:20:31
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 14:25:20
+ * @LastEditTime: 2020-12-17 14:51:02
  * @FilePath: \BookSystem\src\common\header\index.js
  */
 import { Layout, Menu, Icon, Dropdown, Modal } from 'antd';
@@ -46,7 +46,7 @@ function AdminHeader (){
         <Layout>
           <Header className={styles.header}>
           <div style={style.logo} >
-                <img style={style.im} src={require("images/logo.png")}></img>
+                <img style={style.im} src={require("images/搜书.png")}></img>
                <span>RAYS <span style={style.platform}>图书展示平台</span></span>
             </div>
             <Dropdown overlay={menu} trigger={['click']} className={styles.dropDown}>
@@ -77,7 +77,9 @@ const style = {
     fontSize:'20px',
  },
  im:{
-  marginBottom:'7px'
+  marginBottom:'7px',
+  height:'32px',
+  marginRight:'6px'
  }
 }
 export default memo(AdminHeader);

@@ -152,10 +152,10 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
  			<div className = 'SearchBook'>
  				<AdminLayout>
 	 				<Breadcrumb style={{ margin: '16px 0' }}>
-	                  <Breadcrumb.Item>图书搜索</Breadcrumb.Item>
+	                  <Breadcrumb.Item>图书查询</Breadcrumb.Item>
 	                  <Breadcrumb.Item>列表页面</Breadcrumb.Item>
 	                </Breadcrumb>
-					<Alert message="说明：搜索条件皆为非必填项" type="info" showIcon banner/>
+					<Alert message="说明：查询条件皆为非必填项" type="info" showIcon banner/>
 					<SearchForms 
 						getValues={((values)=>{
 							setValues(values)
@@ -167,7 +167,7 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 							// console.log('values', values)	
 						})}
 					/>
-					{current != 0  ?<div className="content">
+					<div className="content">
 						<CustomTable 
 							columns={columns} 
 							dataSource={dataSource}
@@ -186,7 +186,7 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 								}))
 							}}							 
 						></CustomPagination> 
-					</div> : ''}
+					</div> 
  				</AdminLayout>
  			</div>		
 		)
