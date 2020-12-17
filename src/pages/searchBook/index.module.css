@@ -1,17 +1,20 @@
 .searchForms{
-	width:1250px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-.searchForms .ant-col{
-	flex:1;
-}
-.inputForm{
-	width:1000px;
+	width:1150px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+.searchForms .ant-row{
+	flex:none;
+}
+.inputForm{
+	width:960px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.inputForm .ant-col{
+	flex:none;
 }
 .buttonForm{
 	width:155px;

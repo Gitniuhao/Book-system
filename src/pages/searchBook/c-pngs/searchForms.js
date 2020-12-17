@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-08-31 10:56:19
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-17 15:47:17
+ * @LastEditTime: 2020-12-17 17:08:03
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\searchForms.js
  */
 import React,{memo,useEffect} from 'react'
@@ -42,8 +42,8 @@ function Search(props){
         <div className={styles.form}>
             <Form  
                 className={styles.searchForms} 
-                labelCol={{ span: 7 }} 
-                wrapperCol={{ span: 17 }}
+                labelCol={{ span: 6 }} 
+                wrapperCol={{ span: 18 }}
                 onSubmit={handleSubmit}
             >
               <div className={styles.inputForm}>
@@ -53,11 +53,11 @@ function Search(props){
                         })(
                         <Input
                             placeholder="请输入图书名称"
-                            style={{width:'230px'}}
+                            style={{width:'220px'}}
                         />,
                         )}
                     </Form.Item>
-                    <Form.Item label="isbn">
+                    <Form.Item label="isbn" style={{flex:"1"}}>
                         {getFieldDecorator('isbn',{
                         // rules: [{ required: true, message: 'isbn不能为空' }],
                         })(
@@ -67,7 +67,7 @@ function Search(props){
                         />,
                         )}
                     </Form.Item>
-                    <Form.Item label="出版社">
+                    <Form.Item label="出版社" style={{flex:"1"}}>
                         {getFieldDecorator('publish',{
                         // rules: [{ required: true, message: '出版社不能为空' }],
                         })(
@@ -93,8 +93,7 @@ function Search(props){
                     <Form.Item>
                         <Button 
                             type="ghost"  
-                            className="btn-submit"
-                            // style={{backgroundColor:'#a3b8d9'}}                   
+                            className="btn-submit"                   
                             onClick ={()=>props.form.resetFields()}
                         >
                         重置
