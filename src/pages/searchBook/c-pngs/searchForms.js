@@ -2,12 +2,15 @@
  * @Author: 牛皓
  * @Date: 2020-08-31 10:56:19
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-17 17:08:03
+ * @LastEditTime: 2020-12-18 15:50:39
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\searchForms.js
  */
-import React,{memo,useEffect} from 'react'
+import React,{memo,useEffect,useState} from 'react'
 import styles from '../index.module.css';
 import { Form,Input,Button } from 'antd';
+import { Select } from 'antd';
+const { Option } = Select;
+import { JudgeDataSource } from 'util'
 
 function Search(props){
 
@@ -18,6 +21,8 @@ function Search(props){
             }
             let code = e.charCode || e.keyCode
             if(code === 13){
+                e.stopPropagation()//阻止enter键下拉框展开
+                // console.log('dataSource', dataSource)
                 handleSubmit(e)
             }
         });
@@ -27,14 +32,32 @@ function Search(props){
         }
     },[handleSubmit])
 
+    
     const handleSubmit = (e)=>{
         e.preventDefault();
         props.form.validateFields((err, values) => {
         if (!err) {
-                props.getValues(values);//传递方法给父组件用来传递数据           
+            const Values = {
+                bookName:values.bookName,
+                isbn:values.isbn,
+                publish:values.publish,
+                dataSource:JudgeDataSource(values.dataSource.key)
+            }
+            console.log('values',  Values)
+                props.getValues(Values);//传递方法给父组件用来传递数据           
         }
         });
     };
+    const arr = [
+        '请选择数据来源',
+        'RAYS图书',
+        '中国图书网',
+        '豆瓣图书',
+        '当当网',
+        '京东图书',
+        '中国图书库',
+        '开卷网',
+    ]
 
     const { getFieldDecorator } = props.form;
 
@@ -53,7 +76,7 @@ function Search(props){
                         })(
                         <Input
                             placeholder="请输入图书名称"
-                            style={{width:'220px'}}
+                            style={{width:'190px'}}
                         />,
                         )}
                     </Form.Item>
@@ -63,7 +86,7 @@ function Search(props){
                         })(
                         <Input
                             placeholder="请输入isbn"
-                            style={{width:'230px'}}
+                            style={{width:'200px'}}
                         />,
                         )}
                     </Form.Item>
@@ -73,8 +96,25 @@ function Search(props){
                         })(
                         <Input
                             placeholder="请输入出版社"
-                            style={{width:'230px'}}
+                            style={{width:'185px'}}
                         />,
+                        )}
+                    </Form.Item>
+                    <Form.Item label="数据来源" >
+                        {getFieldDecorator('dataSource',{
+                            initialValue: {key:""},
+                        // rules: [{ required: true, message: '出版社不能为空' }],
+                        })(                     
+                            <Select 
+                                labelInValue  
+                                style={{ width: 190  }}  
+                                placeholder="请选择数据来源"
+                                allowClear={true} 
+                            >
+                                {arr.map((item)=>{
+                                    return <Option key={item}  value={item == '请选择数据来源' ? '' : item}>{item}</Option>
+                                })}
+                            </Select>
                         )}
                     </Form.Item>
               </div>

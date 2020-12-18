@@ -8,6 +8,7 @@ import CustomTable from 'common/table'
 import CustomPagination from 'common/pagination'
 import SearchForms from './searchForms'
 import {Link} from 'react-router-dom'
+import {JudgeWeb} from 'util'
 
 //容器组件，只负责业务逻辑和数据的处理
 //用构造函数继承Compontent构造函数，然后渲染，最后返回html代码
@@ -70,11 +71,6 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			  key: 'bookPrice',
 			  dataIndex: 'bookPrice',
 			},
-			// {
-			//   title: '作者',
-			//   key: 'author',
-			//   dataIndex: 'author',
-			// },
 			{
 			  title: '出版社',
 			  key: 'publish',
@@ -111,7 +107,10 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			  dataIndex: 'dataSource',
 			  render:(dataSource)=>{
 				  return (
-					  <a href={dataSource} target="blank">{dataSource}</a>
+					  <div>
+						  <p>{JudgeWeb(dataSource)}</p>
+					  	  <a href={dataSource} target="blank">{dataSource}</a>
+					  </div>					  
 				  )
 			  }
 			},

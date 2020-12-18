@@ -35,3 +35,11 @@
 .ant-table-body .ant-table-thead th {
   min-width: 88px;
 }
+.ant-table-body .ant-table-tbody td {
+  min-width: 88px;
+}
+.ant-table-body .ant-table-tbody td a {
+  display: block;
+  min-width: 20px;
+  word-wrap: break-word !important;
+}

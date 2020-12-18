@@ -155,6 +155,43 @@ export const cutImageUrl = (imgUrl) =>{
 	return imgUrl.substr(imgUrl.indexOf(":")+1)
 }
 
+export const JudgeDataSource = (dataSource)=>{
+	if(dataSource == '中国图书网'){
+		return 'http://www.bookschina.com/'
+	}else if(dataSource == '豆瓣图书'){ 
+		return 'https://book.douban.com'
+	}else if(dataSource == '当当网'){
+		return 'http://www.dangdang.com'
+	}else if(dataSource == '京东图书'){
+		return 'https://www.jd.com'
+	}else if(dataSource == 'RAYS图书'){
+		return 'https://rays.5rs.me/'
+	}else if(dataSource == '中国图书库'){
+		return 'http://www.cnpub.com.cn'
+	}else if(dataSource == '开卷网'){
+		return 'http://www.openbookdata.com.cn'
+	}else{
+		return null
+	}
+}
+export const JudgeWeb = (web)=>{
+	if(web == 'http://www.bookschina.com/'){
+		return '中国图书网'
+	}else if(web == 'https://book.douban.com'){ 
+		return '豆瓣图书'
+	}else if(web == 'http://www.dangdang.com'){
+		return '当当网'
+	}else if(web == 'https://www.jd.com'){
+		return '京东图书'
+	}else if(web == 'https://rays.5rs.me/'){
+		return 'RAYS图书'
+	}else if(web == 'http://www.cnpub.com.cn'){
+		return '中国图书库'
+	}else if(web == 'http://www.openbookdata.com.cn'){
+		return '开卷网'
+	}
+}
+
 
 
 
