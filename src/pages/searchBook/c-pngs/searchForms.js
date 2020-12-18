@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-08-31 10:56:19
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-18 15:50:39
+ * @LastEditTime: 2020-12-18 16:54:13
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\searchForms.js
  */
 import React,{memo,useEffect,useState} from 'react'
@@ -109,7 +109,7 @@ function Search(props){
                                 labelInValue  
                                 style={{ width: 190  }}  
                                 placeholder="请选择数据来源"
-                                allowClear={true} 
+                                // allowClear={true} 
                             >
                                 {arr.map((item)=>{
                                     return <Option key={item}  value={item == '请选择数据来源' ? '' : item}>{item}</Option>
