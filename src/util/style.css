@@ -43,6 +43,3 @@
   min-width: 20px;
   word-wrap: break-word !important;
 }
-.ant-pagination li:nth-last-child(3) {
-  display: none;
-}
