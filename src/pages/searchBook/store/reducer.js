@@ -2,15 +2,15 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-02 09:48:21
- * @FilePath: \Book-system\src\pages\searchBook\store\reducer.js
+ * @LastEditTime: 2020-12-21 15:24:19
+ * @FilePath: \BookSystem\src\pages\searchBook\store\reducer.js
  */
 //此页面利用reducer进行数据的处理，使得数据处理更加高效
 import * as types from './actionTypes.js'
 import { fromJS } from 'immutable'
 const defaultState = fromJS({//初始化默认数据
 	list:[],
-	current:0,
+	current:1,
 	currentPageSize:0,
 	totalPages:0,
 	total:0,

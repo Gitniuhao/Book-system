@@ -15,11 +15,11 @@ class Pagination extends React.Component{
         let params = {
             total: 0, // 总条数
             page: 1, // 当前页
-            pageSize: 10, // 一页多少条
+            pageSize: 7, // 一页多少条
             totalArray: [],
             activeIndex: 1,
             fastPage: true, // 是否 上一页 和 下一页
-            defaultNum: 10,
+            defaultNum: 7,
             pageNum: 0, //总共多少页
             jumpValue:'',
             isPrev:false,
@@ -66,8 +66,8 @@ pageInit(){
     if(pageNum >= intervalNumber) {
         let arr = [],arr1 = [],arr2 = [];
         if(this.state.activeIndex > intervalNumber && this.state.activeIndex < pageNum - intervalNumber){ // 取中间部分
-            arr1.push( this.state.activeIndex - 5 )
-            arr1.push( this.state.activeIndex - 4 )
+            // arr1.push( this.state.activeIndex - 5 )
+            // arr1.push( this.state.activeIndex - 4 )
             arr1.push( this.state.activeIndex - 3 )
             arr1.push( this.state.activeIndex - 2 )
             arr1.push( this.state.activeIndex - 1 )
@@ -75,7 +75,7 @@ pageInit(){
             arr1.push( this.state.activeIndex + 1 )
             arr1.push( this.state.activeIndex + 2 )
             arr1.push( this.state.activeIndex + 3 )
-            arr1.push( this.state.activeIndex + 4 )
+            // arr1.push( this.state.activeIndex + 4 )
         } else if( this.state.activeIndex <= intervalNumber ) { // 取开头部分
             for( let i =0; i< pageNum; i++ ) {
                 if(i == intervalNumber || i+1 == pageNum) {
@@ -139,8 +139,9 @@ UNSAFE_componentWillReceiveProps(props){ // props 改变时 触发的函数
             this.pageInit()
         });
     },0)
-    console.log('this.state.activeIndex', this.state.activeIndex)
-    console.log('this.props', this.props)
+    this.setState({//筛选条件后初始化页码
+        activeIndex:this.props.currentPage
+    })
 }
 nextHandle(event){
     let _this = this;
@@ -164,7 +165,6 @@ prevHandle(event){
 }
 itemClick(item,index){
     let _this = this;
-    console.log('itemClick',this.state.activeIndex)
     let num = this.state.activeIndex;
     if( item == index > 2 ){
         num += 5;

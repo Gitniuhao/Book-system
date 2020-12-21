@@ -1,11 +1,12 @@
 //引入react和属于react的Compontent函数
-import React,{memo,useState,useEffect} from 'react'
+import React,{memo,useState} from 'react'
 import * as actionCreator from'../store/actionCreator.js'
 import { useSelector,shallowEqual,useDispatch } from 'react-redux'
 import { Breadcrumb,Alert } from 'antd';
 import AdminLayout from 'common/layout'
 import CustomTable from 'common/table'
-import CustomPagination from 'common/pagination'
+// import CustomPagination from 'common/pagination'
+import Pagination from 'common/pagination/pagination.js'
 import SearchForms from './searchForms'
 import {Link} from 'react-router-dom'
 import {JudgeWeb} from 'util'
@@ -14,7 +15,6 @@ import {JudgeWeb} from 'util'
 //用构造函数继承Compontent构造函数，然后渲染，最后返回html代码
 function SearchBook(props){//自定义组件名字首字母都要大写，而html组件则就是个一个html标签
 		const [values,setValues] = useState({})
-		const [activeIndex,setActiveIndex] = useState('')
 
 		const {current,currentPageSize,total,totalPages,list,isFecthing,keywords} = useSelector(state =>({
 			current:state.getIn(['searchBook','current']),
@@ -25,9 +25,6 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			isFecthing:state.getIn(['searchBook','isFecthing']),
 			keywords:state.getIn(['searchBook','keywords'])
 		}),shallowEqual)	
-		useEffect(()=>{
-			console.log('current', current)
-		},[])
 
 		const dispatch = useDispatch()
 
@@ -159,7 +156,6 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 					<SearchForms 
 						getValues={((values)=>{
 							setValues(values)
-							// setActiveIndex(1)
 							dispatch(actionCreator.getBookListAction({
 								values:values,
 								currentPage:0,
@@ -174,7 +170,7 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 							dataSource={dataSource}
 							isFecthing={isFecthing}
 						></CustomTable>	
-						<CustomPagination
+						{/* <CustomPagination
 							total={total}
 							current={current}
 							currentPageSize={currentPageSize}
@@ -186,7 +182,20 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 									pageSize
 								}))
 							}}							 
-						></CustomPagination> 
+						></CustomPagination>  */}
+						{(current && totalPages >1) ?<Pagination
+							total={total}
+							currentPage={current}
+							currentPageSize={currentPageSize}
+							totalPages={totalPages}
+							onPageChang={(num)=>{//点击分页器根据当前页码进行改变页面
+								dispatch(actionCreator.getBookListAction({
+									values:values,
+									currentPage:num-1,
+									pageSize:10
+								}))
+							}}							 
+						></Pagination> : ''}
 					</div> 
  				</AdminLayout>
  			</div>		
