@@ -192,7 +192,7 @@ export const JudgeWeb = (web)=>{
 	}
 }
 export const TransformUrl = (url)=>{	
-	let Reg =/^'.hoguu.com:18000'|^'.bookschina.com'/ig
+	let Reg =/'.hoguu.com:18000'/ig
 	if(Reg.test(url)){
 		let newUrl = url.replace(Reg,``)
 		let reg = new RegExp('http://','ig')
