@@ -2,10 +2,10 @@
  * @Author: 牛皓
  * @Date: 2020-08-31 10:56:19
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-18 16:54:13
+ * @LastEditTime: 2020-12-18 17:45:01
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\searchForms.js
  */
-import React,{memo,useEffect,useState} from 'react'
+import React,{memo,useEffect} from 'react'
 import styles from '../index.module.css';
 import { Form,Input,Button } from 'antd';
 import { Select } from 'antd';
@@ -72,7 +72,6 @@ function Search(props){
               <div className={styles.inputForm}>
                     <Form.Item label="图书名称">
                         {getFieldDecorator('bookName',{
-                        // rules: [{ required: true, message: '图书名称不能为空' }],
                         })(
                         <Input
                             placeholder="请输入图书名称"
@@ -82,7 +81,6 @@ function Search(props){
                     </Form.Item>
                     <Form.Item label="isbn" style={{flex:"1"}}>
                         {getFieldDecorator('isbn',{
-                        // rules: [{ required: true, message: 'isbn不能为空' }],
                         })(
                         <Input
                             placeholder="请输入isbn"
@@ -92,7 +90,6 @@ function Search(props){
                     </Form.Item>
                     <Form.Item label="出版社" style={{flex:"1"}}>
                         {getFieldDecorator('publish',{
-                        // rules: [{ required: true, message: '出版社不能为空' }],
                         })(
                         <Input
                             placeholder="请输入出版社"
@@ -103,7 +100,6 @@ function Search(props){
                     <Form.Item label="数据来源" >
                         {getFieldDecorator('dataSource',{
                             initialValue: {key:""},
-                        // rules: [{ required: true, message: '出版社不能为空' }],
                         })(                     
                             <Select 
                                 labelInValue  

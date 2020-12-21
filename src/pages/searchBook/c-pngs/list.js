@@ -1,11 +1,11 @@
 //引入react和属于react的Compontent函数
-import React,{memo,useState,useEffect} from 'react'
+import React,{memo,useState} from 'react'
 import * as actionCreator from'../store/actionCreator.js'
 import { useSelector,shallowEqual,useDispatch } from 'react-redux'
 import { Breadcrumb,Alert } from 'antd';
 import AdminLayout from 'common/layout'
 import CustomTable from 'common/table'
-import CustomPagination from 'common/pagination'
+import Pagination from 'common/pagination/pagination.js'
 import SearchForms from './searchForms'
 import {Link} from 'react-router-dom'
 import {JudgeWeb} from 'util'
@@ -25,9 +25,6 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 			keywords:state.getIn(['searchBook','keywords'])
 		}),shallowEqual)	
 
-		useEffect(()=>{
-			console.log('keywords', keywords)
-		},[])
 		const dispatch = useDispatch()
 
 		const columns = [
@@ -172,19 +169,20 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 							dataSource={dataSource}
 							isFecthing={isFecthing}
 						></CustomTable>	
-						 <CustomPagination
-							total={total}
-							current={current}
+						{current ? <Pagination 
+							total={total} 
+							currentPage={current}
 							currentPageSize={currentPageSize}
 							totalPages={totalPages}
-							getChangeValues={(page,pageSize)=>{//点击分页器根据当前页码进行改变页面
+							onPageChang={(num)=>{
+								// console.log(num)
 								dispatch(actionCreator.getBookListAction({
 									values:values,
-									currentPage:page-1,
-									pageSize
+									currentPage:num-1,
+									pageSize:10
 								}))
-							}}							 
-						></CustomPagination> 
+							}}
+						></Pagination> : ''}
 					</div> 
  				</AdminLayout>
  			</div>		

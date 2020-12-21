@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-12-03 10:58:44
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-08 14:30:11
+ * @LastEditTime: 2020-12-21 10:23:32
  * @FilePath: \BookSystem\src\common\pagination\index.js
  */
 import React,{memo} from 'react'
@@ -22,6 +22,13 @@ function CustomPagination (props){
                 }}							 
                 showQuickJumper
                 hideOnSinglePage={true}
+                // itemRender={(page, type, originalElement)=>{
+                //     // console.log('originalElement', originalElement)
+                //     // console.log('page', page)
+                //     // if(type == 'page' && page > 6){
+                //     //     return 
+                //     // }
+                // }}
             />            
     )
 }
