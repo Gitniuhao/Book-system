@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-12-08 11:22:54
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-17 15:48:09
+ * @LastEditTime: 2020-12-21 16:42:27
  * @FilePath: \BookSystem\src\pages\searchBook\c-pngs\detail.js
  */
 import React,{memo,useEffect} from 'react';
@@ -19,18 +19,21 @@ import {withRouter} from 'react-router-dom'
 import {createBrowserHistory} from 'history'
 const history = createBrowserHistory()
 import styles from '../index.module.css'
+import {TransformUrl} from 'util'
 
 function BookDetail(props){
 
     const dispatch = useDispatch()
-     useEffect(() => {
-         dispatch(actionCreator.getBookDetailAction(props.match.params.bookId))  
-    }, [])
+     
 
     
     const {bookDetail} = useSelector(state=>({
         bookDetail:state.getIn(['searchBook','bookDetail'])
     }),shallowEqual)
+
+    useEffect(() => {
+        dispatch(actionCreator.getBookDetailAction(props.match.params.bookId))
+   }, [])
      
     return(
         <div className={styles.bookDetail}>
@@ -51,7 +54,7 @@ function BookDetail(props){
                                         <li style={{listStyle:'none'}}>
                                             <img 
                                                 style={{height:'170px'}} 
-                                                src={bookDetail.imgUrl !=null  ? bookDetail.imgUrl : require('images/暂无相关内容.png')}
+                                                src={bookDetail.imgUrl !=null  ? TransformUrl(bookDetail.imgUrl) : require('images/暂无相关内容.png')}
                                                 onError={(e)=>{e.target.onerror = null; e.target.src=require('images/暂无相关内容.png')}}
                                             ></img>
                                         </li>

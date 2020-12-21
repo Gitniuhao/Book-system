@@ -9,7 +9,7 @@ import CustomTable from 'common/table'
 import Pagination from 'common/pagination/pagination.js'
 import SearchForms from './searchForms'
 import {Link} from 'react-router-dom'
-import {JudgeWeb} from 'util'
+import {JudgeWeb,TransformUrl} from 'util'
 
 //容器组件，只负责业务逻辑和数据的处理
 //用构造函数继承Compontent构造函数，然后渲染，最后返回html代码
@@ -93,7 +93,7 @@ function SearchBook(props){//自定义组件名字首字母都要大写，而htm
 					<img
 						key={record.key} 
 						style={{height:'40px'}}  
-						src={imgUrl!=null  ? imgUrl : require('images/暂无相关内容.png')}
+						src={imgUrl!=null  ? TransformUrl(imgUrl) : require('images/暂无相关内容.png')}
 						onError={(e)=>{e.target.onerror = null; e.target.src=require('images/暂无相关内容.png')}}
 					></img>
 				  )
