@@ -191,12 +191,16 @@ export const JudgeWeb = (web)=>{
 		return '开卷网'
 	}
 }
-export const TransformUrl = (url)=>{
-	let reg = new RegExp('http://','ig')
-	let newUrl = url.replace(reg,`https://file.raysgo.com/oss/imgdownload/`)
+export const TransformUrl = (url)=>{	
 	let Reg = new RegExp('.hoguu.com:18000','ig')
-	let returnUrl = newUrl.replace(Reg,``)
-	return returnUrl;
+	if(Reg.test(url)){
+		let newUrl = url.replace(Reg,``)
+		let reg = new RegExp('http://','ig')
+		let returnUrl = newUrl.replace(reg,`https://file.raysgo.com/oss/imgdownload/`)
+		return returnUrl;
+	}else{
+		return url;
+	}		
 }
 
 
