@@ -139,6 +139,8 @@ UNSAFE_componentWillReceiveProps(props){ // props 改变时 触发的函数
             this.pageInit()
         });
     },0)
+    console.log('this.state.activeIndex', this.state.activeIndex)
+    console.log('this.props', this.props)
 }
 nextHandle(event){
     let _this = this;
@@ -162,7 +164,7 @@ prevHandle(event){
 }
 itemClick(item,index){
     let _this = this;
-    console.log(this.state.activeIndex)
+    console.log('itemClick',this.state.activeIndex)
     let num = this.state.activeIndex;
     if( item == index > 2 ){
         num += 5;
