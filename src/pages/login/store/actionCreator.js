@@ -2,7 +2,7 @@
  * @Author: 牛皓
  * @Date: 2020-11-27 10:47:01
  * @LastEditors: 牛皓
- * @LastEditTime: 2020-12-07 15:36:00
+ * @LastEditTime: 2021-04-22 15:32:33
  * @FilePath: \BookSystem\src\pages\login\store\actionCreator.js
  */
 //在此页面定义并导出各个action(对象)，便于维护与处理
@@ -27,7 +27,7 @@ export const  getLoginAction = (values)=>{
 			pwd:values.password
 		})
 		.then(result=>{
-			console.log('result', result)
+			// console.log('result', result.code)
 			if(result.data.code == '0'){//登录成功		
 				// 1、先将用户信息保存在前台
 				setItem({
@@ -46,7 +46,7 @@ export const  getLoginAction = (values)=>{
 				// 2、然后跳转用后台首页
 					window.location.href = '/platform/searchBook'				
 			}else{//登录失败
-				message.error(result.data.msg);
+				result.data.msg ? message.error(result.data.msg) : message.error('后台请求失败，请稍后重试~');
 			}
 		})
 		.catch(err =>{

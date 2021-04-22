@@ -32,20 +32,15 @@ function NormalRegisterForm(props){
     }),shallowEqual)
 
     const dispatch = useDispatch()
-    useEffect(() => {
-      console.log('isFecthing', isFecthing)
-    }, [])
 
     const onRePasswordBlur = (e) => {//再次输入密码时进行验证
-        // console.log('change', e.target.value)
-        console.log('password', password)
         if(password != e.target.value){
           message.error('两次密码不一致，请重新输入密码')
           return;
         }
     }
     const onAuthBlur = (e) => {//输入图形验证码时的验证
-        if(authCode != e.target.value){
+        if(authCode != e.target.value.toUpperCase()){//将输入框内的内容全部大写      
           message.error('验证码输入错误，请重新输入')
           return;
         }
@@ -147,18 +142,4 @@ function NormalRegisterForm(props){
     );
   }
 const WrappedNormalRegisterForm = Form.create({ name: 'normal_login' })(NormalRegisterForm);
-// //将store里的数据映射到props里
-// const mapStateToProps = (state) =>{
-// 	return{
-// 		isFecthing:state.get('login').get('isFecthing') 
-// 	}
-// }
-// //将方法映射到组件中，从而返回到this.props里
-// const mapDispatchToProps =(dispatch)=>{//利用接收的dispatch参数，进行派发action
-// 	return{//将方法都需要返回一个对象，
-// 		 handleLogin:(values)=>{
-// 		 	dispatch(actionCreator.getLoginAction(values))
-// 		 }
-// 	}
-// }
 export default memo(WrappedNormalRegisterForm);
